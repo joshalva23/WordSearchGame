@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+.Title{
+    position: absolute;
+    display: flexbox;
+    z-index: 0;
+    background: rgba(255,80, 92, 0.75) ;
+    margin: 1rem 0 0 -9.5rem;
+    height:7rem;
+    width: 30rem;
+    overflow: hidden;
+    border-radius: 25px;
+}
+.Title p{
+    display: block;
+    margin: 3% 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family:'Poppins', sans-serif;
+    font-size: 4rem;
+}
+.board{
+    position:absolute;
+    z-index: 0;
+    background: rgba(255,80, 92, 0.75);
+    display: inline;
+    align-items: center;
+    justify-content: center;  
+    margin: 12.5%;
+    position:fixed;
+}
+.row{
+    display: block;
+}
+.square{
+    background-color: white;
+    justify-self: center;
+    height: 2.75rem;
+    width : 2.75rem;
+    font-size: 1.5rem;
+    outline:none;
+    border-color: rgb(255,80,92);
+    box-shadow: none;
+    /* margin: 0.15rem 0.15rem; */
+    /* border-color:transparent; */
+}
+.square button{
+    outline:none;
+}
+.Scoreboard{
+    position: relative;
+    display: flexbox;
+    background-color: rgba(255,80, 92, 0.75);
+    margin: 170% 0% 0 230%;
+    height:10rem;
+    width:10rem;
+    border-radius: 50%;
+} 
+.Scoreboard span{
+    position:relative;
+    display: inline-flex;
+    margin:17% 0 0 22%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    padding : 0 0;
+    font-weight: 200;
+}
+#remCount{
+    position: absolute;
+    top: -5rem;
+    left: 2.1rem;
+}
+#Congratulations{
+    position:absolute;
+    z-index: 1;
+    margin: 0.5% 0 0 -22%;
+    border-radius: 25px;
+    height:10rem;
+    width:32rem;
+}
+#Congratulations p{
+    margin:10% 0 0 5%;
+}
+
+
+
