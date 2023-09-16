@@ -142,8 +142,6 @@ function Square({ value, data, onSquareClick }) {
     </button>
   );
 }
-
-
 function RowBoard({ rowNo, crossword, onSquareClick }) {
   return (
     <span className={`row`}>
@@ -158,7 +156,6 @@ function RowBoard({ rowNo, crossword, onSquareClick }) {
     </span>
   );
 }
-
 function Board({ crossword, onSquareClick }) {
   return (
     <div className="board">
@@ -185,7 +182,6 @@ function CongratsTab({showCongratulations}) {
       </p>
     </span>
   );
-//return null;
 }
 
 
@@ -287,32 +283,25 @@ export default function WordSearch() {
 
   return (
     <>
-    <div className="CrosswordWindow" id="CrosswordWindow">
-    <CongratsTab  showCongratulations={showCongratulations}/>
-    <div>
-      <div className="Title" >
-        <p>WordSearch</p>
+      <div className="CrosswordWindow" id="CrosswordWindow">
+        <CongratsTab  showCongratulations={showCongratulations}/>
+        <div>
+          <div className="Title" >
+            <p>WordSearch</p>
+          </div>
+          <div className="Scoreboard">
+            <span><p>To Find</p></span>
+            <span ><p class = "remCount" id="remCount">{remainingWords}</p></span>
+          </div>
+        </div>
+        <Board crossword={_Crossword} onSquareClick={handleClick} />
       </div>
-
-      <div className="Scoreboard">
-        <span><p>To Find</p></span>
-        <span ><p class = "remCount" id="remCount">{remainingWords}</p> 
-        </span>
-        
-      </div>
-      </div>
-      <Board crossword={_Crossword} onSquareClick={handleClick} />
-    
-    <div>
-    
-  </div>
-  </div>
-  <audio ref={audioRef2}>
-      <source src={correctSound} type="audio/mpeg" />
-    </audio>
-    <audio ref={audioRef}>
-      <source src={winSound} type="audio/mpeg" />
-    </audio>
+      <audio ref={audioRef2}>
+        <source src={correctSound} type="audio/mpeg" />
+      </audio>
+      <audio ref={audioRef}>
+        <source src={winSound} type="audio/mpeg" />
+      </audio>
     </>
   );
 }
