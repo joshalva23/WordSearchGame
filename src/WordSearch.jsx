@@ -173,7 +173,7 @@ function Board({ crossword, onSquareClick }) {
 function CongratsTab({showCongratulations}) {
 
   return (
-    <span className={`Congratulations ${showCongratulations?setTimeout(()=> {return 'show'},1000):''}`} >
+    <span className={`Congratulations ${showCongratulations? 'show':''}`} >
       <p style={{ font: "italic bold 4rem 'Poppins', sans-serif", textAlign: "center" ,justifyContent:"center",margin:"40vh 0 0 0 "}}>
         Congratulations!!!
       </p>
@@ -221,7 +221,8 @@ export default function WordSearch() {
     }
     if (genWordList.includes(WordList)) {
       // WordList matches one of the words in genWordList
-      audioRef2.current.play();
+      if(remainingWords > 1)
+        audioRef2.current.play();
       setRemainingWords(remainingWords - 1);
       setfilled(()=>
       {
