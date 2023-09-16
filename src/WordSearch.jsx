@@ -1,6 +1,7 @@
 import React, { useState, useEffect ,useRef} from 'react';
 import './WordSearch.css';
-import winSound from './win.mp3';
+import winSound from './win.wav';
+import correctSound from './game_bonus.mp3'
 const gridSize = 10;
 const words = ["monkey", "owl", "frog", "spider", "tortoise", "snail"];
 
@@ -172,6 +173,21 @@ function Board({ crossword, onSquareClick }) {
     </div>
   );
 }
+function CongratsTab({showCongratulations}) {
+
+  return (
+    <span className={`Congratulations ${showCongratulations?'show':''}`} >
+      <p style={{ font: "italic bold 4rem 'Poppins', sans-serif", textAlign: "center" ,justifyContent:"center",margin:"40vh 0 0 0 "}}>
+        Congratulations!!!
+      </p>
+      <p style={{ font: "bold 1.25rem 'Poppins', sans-serif",textAlign: "center" ,justifyContent:"center", margin: "1vh 0 0 0" }}>
+        <button onClick={() => window.location.reload()} className="ReplayButton">Replay</button>
+      </p>
+    </span>
+  );
+//return null;
+}
+
 
 export default function WordSearch() {
   const [genWordList, setGenWordList] = useState([]);
@@ -185,7 +201,8 @@ export default function WordSearch() {
   const [colorselector, setColorSelector] = useState(0);
   const [filled,setfilled] = useState([]);
   const audioRef = useRef(null);
-
+  const audioRef2 = useRef(null);
+  const [showCongratulations, setShowCongratulations] = useState(false);
 
   useEffect(() => {
     const obj = new Crossword();
@@ -199,13 +216,16 @@ export default function WordSearch() {
     setfilled([].fill(false,0,gridSize*gridSize-1));
   }, []);
 
-  // function replayGame() {
-  //   window.location.reload();
-  // }
   useEffect(() => {
     // Check if WordList matches any word in genWordList
+    if(remainingWords===0)
+    {
+      setShowCongratulations(true);
+      audioRef.current.play();
+    }
     if (genWordList.includes(WordList)) {
       // WordList matches one of the words in genWordList
+      audioRef2.current.play();
       setRemainingWords(remainingWords - 1);
       setfilled(()=>
       {
@@ -215,6 +235,7 @@ export default function WordSearch() {
         return filled;
 
       });
+      
       setSelectedWords([]);
       setWordList('');
       setColorSelector((colorselector+1)%colors.length);
@@ -231,26 +252,8 @@ export default function WordSearch() {
       setSelectedWords([]);
       setWordList('');
     }
-    if(remainingWords===0)
-    {
-      const congMessage = document.getElementById('Congratulations');
-      const p = congMessage.getElementsByTagName('p');
-      congMessage.style.backgroundColor = "#ff445c";
-      p[0].innerHTML = "Congratulations!!!";
-      p[1].innerHTML= '<button onClick=window.location.reload()>Replay</button>';
-      p[0].style.font ="italic bold 3rem 'Poppins', sans-serif";
-      p[1].style.font = "bold 1rem 'Poppins', sans-serif";
-      p[1].style.margin= "1% 0 0 40%";
-      const button = p[1].getElementsByTagName('button')[0];
-      button.style.height = "1.5rem";
-      button.style.width = "5rem";
-      button.style.bgcolor = "#ffffff"
-      button.style.borderColor = "#888888";
-      button.style.font = "100 1rem  'Poppins', sans-serif";
-      
-      audioRef.current.play();
-    }
-  }, [genWordList,maxWordLength,selectedWords, WordList, remainingWords,colors,colorselector,filled]);
+    
+  }, [genWordList,maxWordLength,selectedWords, WordList, remainingWords,colors,colorselector,filled,showCongratulations]);
 
   function handleClick(value) {
     if(filled[value])
@@ -279,33 +282,37 @@ export default function WordSearch() {
       setWordList(WordList + selection.innerHTML);
     }
   }
-
-
   
   
 
   return (
     <>
+    <div className="CrosswordWindow" id="CrosswordWindow">
+    <CongratsTab  showCongratulations={showCongratulations}/>
     <div>
       <div className="Title" >
         <p>WordSearch</p>
       </div>
+
       <div className="Scoreboard">
         <span><p>To Find</p></span>
-        <span ><p id="remCount">{remainingWords}</p> 
+        <span ><p class = "remCount" id="remCount">{remainingWords}</p> 
         </span>
         
       </div>
       </div>
       <Board crossword={_Crossword} onSquareClick={handleClick} />
+    
     <div>
-      <span id="Congratulations"><p></p><p></p></span>
-    </div>
-    <div>
+    
+  </div>
+  </div>
+  <audio ref={audioRef2}>
+      <source src={correctSound} type="audio/mpeg" />
+    </audio>
     <audio ref={audioRef}>
       <source src={winSound} type="audio/mpeg" />
     </audio>
-  </div>
     </>
   );
 }
