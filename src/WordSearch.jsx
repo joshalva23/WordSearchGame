@@ -173,7 +173,7 @@ function Board({ crossword, onSquareClick }) {
 function CongratsTab({showCongratulations}) {
 
   return (
-    <span className={`Congratulations ${showCongratulations?'show':''}`} >
+    <span className={`Congratulations ${showCongratulations?setTimeout(()=> {return 'show'},1000):''}`} >
       <p style={{ font: "italic bold 4rem 'Poppins', sans-serif", textAlign: "center" ,justifyContent:"center",margin:"40vh 0 0 0 "}}>
         Congratulations!!!
       </p>
