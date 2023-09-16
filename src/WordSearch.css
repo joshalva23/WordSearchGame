@@ -5,16 +5,25 @@
     display: flex;
     height: 100vh;
     width: 100vw;
-    position:relative;
+    position: relative;
+    justify-content: center;
+}
+.HeadWrapper{
+    display: inherit;
+    height:100vh;
+    width:100vw;
     justify-content: center;
 }
 
 .Title {
     position: absolute;
-    display: flexbox;
+    display: inherit;
     z-index: 0;
+    justify-items: center;
+    align-items: center;
     background: rgba(255, 80, 92, 0.75);
-    margin: 1rem 0 0 -9.5rem;
+    margin: 1.75vh 0 0 0;
+    text-align: center;
     height: 7rem;
     width: 30rem;
     overflow: hidden;
@@ -22,14 +31,10 @@
 }
 
 .Title p {
-    position: absolute;
-    display: block;
-    margin: 3% 8%;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    display:inherit;
+    margin:0 2% 0 2%;
     font-family: 'Poppins', sans-serif;
-    font-size: 4rem;
+    font-size: 2.6rem;
 }
 
 .board {
@@ -66,7 +71,7 @@
     position: relative;
     display: flexbox;
     background-color: rgba(255, 80, 92, 0.75);
-    margin: 170% 0% 0 230%;
+    margin: 40vh 0 0 55vw;
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
@@ -97,29 +102,37 @@
     background-color: #ff445c;
     opacity: 0;
     transition: width 1s ease-out, height 1.5s ease-out, opacity 1.5s linear;
-  }
-  
+}
 
-  .Congratulations.show{
+
+.Congratulations.show {
     height: 100vh;
     width: 100vw;
     opacity: 0.9;
-    z-index:5;
-  }
-.ReplayButton{
-        height : 2rem;
-        width:5rem;
-        background-color: #f5f5f5;
-        border-color:#888888; 
-        font: 100 1rem  'Poppins', sans-serif;
+    z-index: 5;
 }
-/* .Congratulations p{
-    margin:10% 0 0 5%;
-} */
 
-/* @media screen and (max-width:900px)
-{
-    .CongratsButton{
-        margin:"0 0 0 -40%";
-    }
-} */
+.ReplayButton {
+    height: 2rem;
+    width: 5rem;
+    background-color: #f5f5f5;
+    border-color: #888888;
+    font: 100 1rem 'Poppins', sans-serif;
+}
+.ListWords{
+    display: inline;
+    position:absolute;
+    height:55vh;
+    width:13vw;
+    font: bold 1.5rem 'Poppins', sans-serif;
+    background-color: rgba(255, 80, 92, 0.7);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 25px;
+    margin:25vh 58vw 0 0;
+}
+.ListWords span{
+    display: block;
+    text-align: center;
+}

@@ -183,6 +183,29 @@ function CongratsTab({showCongratulations}) {
     </span>
   );
 }
+function WordItem({id,genWordList})
+{
+  return (
+    <span id={`wordname${id}`}>
+      <p>{`${genWordList[id]}❔`}</p>
+    </span>
+    );
+}
+
+function WordListTab({genWordList}){
+
+  return (
+    <div className="ListWords">
+    {genWordList.map((value,index)=>(
+      <WordItem
+        key = {index}
+        id = {index}
+        genWordList ={genWordList}
+      />
+    ))}
+    </div>
+  );
+}
 
 
 export default function WordSearch() {
@@ -232,7 +255,8 @@ export default function WordSearch() {
         return filled;
 
       });
-      
+      const wordelement = document.getElementById(`wordname${genWordList.indexOf(WordList)}`);
+      wordelement.getElementsByTagName('p')[0].innerHTML= `${WordList}✅`;
       setSelectedWords([]);
       setWordList('');
       setColorSelector((colorselector+1)%colors.length);
@@ -250,7 +274,7 @@ export default function WordSearch() {
       setWordList('');
     }
     
-  }, [genWordList,maxWordLength,selectedWords, WordList, remainingWords,colors,colorselector,filled,showCongratulations]);
+  }, [genWordList,maxWordLength,selectedWords, WordList, remainingWords,colors,colorselector,filled]);
 
   function handleClick(value) {
     if(filled[value])
@@ -286,14 +310,16 @@ export default function WordSearch() {
     <>
       <div className="CrosswordWindow" id="CrosswordWindow">
         <CongratsTab  showCongratulations={showCongratulations}/>
-        <div>
+        <div className="HeadWrapper">
           <div className="Title" >
-            <p>WordSearch</p>
+            <p>WordSearch(Animals)</p>
           </div>
           <div className="Scoreboard">
             <span><p>To Find</p></span>
-            <span ><p class = "remCount" id="remCount">{remainingWords}</p></span>
+            <span><p className = "remCount" id="remCount">{remainingWords}</p></span>
           </div>
+          <WordListTab genWordList={genWordList}/>
+          
         </div>
         <Board crossword={_Crossword} onSquareClick={handleClick} />
       </div>
