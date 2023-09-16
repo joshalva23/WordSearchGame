@@ -175,7 +175,7 @@ function CongratsTab({showCongratulations}) {
   return (
     <span className={`Congratulations ${showCongratulations? 'show':''}`} >
       <p style={{ font: "italic bold 4rem 'Poppins', sans-serif", textAlign: "center" ,justifyContent:"center",margin:"40vh 0 0 0 "}}>
-        Congratulations!!!
+        Great Bounty, Sire
       </p>
       <p style={{ font: "bold 1.25rem 'Poppins', sans-serif",textAlign: "center" ,justifyContent:"center", margin: "1vh 0 0 0" }}>
         <button onClick={() => window.location.reload()} className="ReplayButton">Replay</button>
@@ -191,7 +191,6 @@ function WordItem({id,genWordList})
     </span>
     );
 }
-
 function WordListTab({genWordList}){
 
   return (
