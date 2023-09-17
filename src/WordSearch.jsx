@@ -288,7 +288,7 @@ export default function WordSearch() {
       const index = selectedWords.indexOf(value);
       
       if (index !== -1) {
-        console.log(index);
+        //console.log(index);
         // Remove the character at the found index from WordList
         setWordList(WordList.slice(0, index) + WordList.slice(index + 1));
       }
