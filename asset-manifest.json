@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/WordSearchGame/static/css/main.f923bd60.css",
-    "main.js": "/WordSearchGame/static/js/main.11e7b9ec.js",
+    "main.css": "/WordSearchGame/static/css/main.07f04180.css",
+    "main.js": "/WordSearchGame/static/js/main.451fafe8.js",
     "static/js/787.18433d75.chunk.js": "/WordSearchGame/static/js/787.18433d75.chunk.js",
     "static/media/win.wav": "/WordSearchGame/static/media/win.37dbbf52e937e52facf6.wav",
     "static/media/game_bonus.mp3": "/WordSearchGame/static/media/game_bonus.93f2df79eaa65bf79dcd.mp3",
     "static/media/bg.png": "/WordSearchGame/static/media/bg.fb9cdc48b19cde474ece.png",
     "index.html": "/WordSearchGame/index.html",
-    "main.f923bd60.css.map": "/WordSearchGame/static/css/main.f923bd60.css.map",
-    "main.11e7b9ec.js.map": "/WordSearchGame/static/js/main.11e7b9ec.js.map",
+    "main.07f04180.css.map": "/WordSearchGame/static/css/main.07f04180.css.map",
+    "main.451fafe8.js.map": "/WordSearchGame/static/js/main.451fafe8.js.map",
     "787.18433d75.chunk.js.map": "/WordSearchGame/static/js/787.18433d75.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f923bd60.css",
-    "static/js/main.11e7b9ec.js"
+    "static/css/main.07f04180.css",
+    "static/js/main.451fafe8.js"
   ]
 }
