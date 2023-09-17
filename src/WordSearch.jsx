@@ -61,7 +61,7 @@ class Crossword {
 
       index--;
     }
-    this.printCrossword();
+    //this.printCrossword();
 
     for (let i = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++) {
@@ -259,7 +259,7 @@ export default function WordSearch() {
       setSelectedWords([]);
       setWordList('');
       setColorSelector((colorselector+1)%colors.length);
-      console.log(colorselector);
+      //console.log(colorselector);
     }
 
     // Clear the selected word if it reaches maxWordLength
