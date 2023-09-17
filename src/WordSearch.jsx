@@ -3,9 +3,8 @@ import './WordSearch.css';
 import winSound from './win.wav';
 import correctSound from './game_bonus.mp3'
 const gridSize = 10;
-const words = ["monkey", "owl", "frog", "spider", "tortoise", "snail"];
+const words = ["monkey", "owl", "frog", "spider", "tortoise", "snail","dog"];
 
-const crosswordWordsSize = 6;
 
 const oriented = {
   NONE: 0,
@@ -17,7 +16,7 @@ const oriented = {
 class Crossword {
   constructor() {
     this.crosswordWords = words;
-    this.inCrossword = new Array(crosswordWordsSize).fill(true);
+    this.inCrossword = new Array(words.length).fill(true);
     this._Crossword = Array.from({ length: gridSize }, () => new Array(gridSize).fill('-'));
     this.maxWordLength = this.crosswordWords.reduce((max, word) => Math.max(max, word.length), 0);
 
@@ -28,7 +27,7 @@ class Crossword {
   }
 
   createCrossword() {
-    let index = crosswordWordsSize;
+    let index = words.length;
 
     while (index !== 0) {
       let isPlaced = false;
@@ -206,7 +205,6 @@ function WordListTab({genWordList}){
   );
 }
 
-
 export default function WordSearch() {
   const [genWordList, setGenWordList] = useState([]);
   const [_Crossword, setCrossword] = useState([]);
@@ -254,8 +252,9 @@ export default function WordSearch() {
         return filled;
 
       });
-      const wordelement = document.getElementById(`wordname${genWordList.indexOf(WordList)}`);
+      const wordelement = document?.getElementById(`wordname${genWordList.indexOf(WordList)}`);
       wordelement.getElementsByTagName('p')[0].innerHTML= `${WordList}✅`;
+      wordelement.scrollIntoView({behaviour:'smooth'});
       setSelectedWords([]);
       setWordList('');
       setColorSelector((colorselector+1)%colors.length);

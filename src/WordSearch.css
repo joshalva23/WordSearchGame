@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+::-webkit-scrollbar{
+    display:block;
+    width:0.25rem;
+    height: 10vh;
+    margin-right: 0.25rem;
+    overflow: hidden;
+}
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner{
+    background: transparent;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+    border-radius:100vw;
+    margin-block: 0.25rem;
+    
+}
+::-webkit-scrollbar-thumb{
+    background: hsla(0, 0%, 57%, 0);
+    border-radius:100vw;
+}
+::-webkit-scrollbar-thumb:active,::-webkit-scrollbar-thumb:hover{
+    background: hsla(0, 0%, 53%, 0.7);
+    border-radius:100vw;
+}
+
 .CrosswordWindow {
     background: url("./bg.png") center/cover no-repeat border-box fixed;
     display: flex;
@@ -51,7 +77,7 @@
 }
 
 .square {
-    background-color: white;
+    background-color: #ffffff;
     justify-self: center;
     height: 6.5vh;
     width: 6.5vh;
@@ -59,8 +85,6 @@
     outline: none;
     border-color: rgb(255, 80, 92);
     box-shadow: none;
-    /* margin: 0.15rem 0.15rem; */
-    /* border-color:transparent; */
 }
 
 .square button {
@@ -120,7 +144,7 @@
     font: 100 1rem 'Poppins', sans-serif;
 }
 .ListWords{
-    display: inline;
+    display:list-item;
     position:absolute;
     height:55vh;
     width:13vw;
@@ -128,7 +152,7 @@
     background-color: rgba(255, 80, 92, 0.7);
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-y: scroll;
     border-radius: 25px;
     margin:25vh 58vw 0 0;
 }
