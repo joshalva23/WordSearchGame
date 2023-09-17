@@ -3,8 +3,6 @@
 ::-webkit-scrollbar{
     display:block;
     width:0.25rem;
-    height: 10vh;
-    margin-right: 0.25rem;
     overflow: hidden;
 }
 ::-webkit-scrollbar-button,
@@ -79,8 +77,8 @@
 .square {
     background-color: #ffffff;
     justify-self: center;
-    height: 6.5vh;
-    width: 6.5vh;
+    height: 3.05rem;
+    width: 3.05rem;
     font-size: 1.5rem;
     outline: none;
     border-color: rgb(255, 80, 92);
@@ -144,17 +142,17 @@
     font: 100 1rem 'Poppins', sans-serif;
 }
 .ListWords{
-    display:list-item;
+    display:inline-block;
     position:absolute;
-    height:55vh;
-    width:13vw;
+    height:25rem;
+    width:11rem;
     font: bold 1.5rem 'Poppins', sans-serif;
     background-color: rgba(255, 80, 92, 0.7);
-    justify-content: center;
-    align-items: center;
-    overflow-y: scroll;
+    overflow-y:auto;
+    overflow-x:auto;
     border-radius: 25px;
-    margin:25vh 58vw 0 0;
+    top:26vh;
+    left:16vw;
 }
 .ListWords span{
     display: block;

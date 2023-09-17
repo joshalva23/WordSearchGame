@@ -205,6 +205,7 @@ function WordListTab({genWordList}){
   );
 }
 
+
 export default function WordSearch() {
   const [genWordList, setGenWordList] = useState([]);
   const [_Crossword, setCrossword] = useState([]);
@@ -254,7 +255,7 @@ export default function WordSearch() {
       });
       const wordelement = document?.getElementById(`wordname${genWordList.indexOf(WordList)}`);
       wordelement.getElementsByTagName('p')[0].innerHTML= `${WordList}✅`;
-      wordelement.scrollIntoView({behaviour:'smooth'});
+      wordelement.scrollIntoViewIfNeeded({behaviour:'smooth'});
       setSelectedWords([]);
       setWordList('');
       setColorSelector((colorselector+1)%colors.length);
@@ -317,7 +318,6 @@ export default function WordSearch() {
             <span><p className = "remCount" id="remCount">{remainingWords}</p></span>
           </div>
           <WordListTab genWordList={genWordList}/>
-          
         </div>
         <Board crossword={_Crossword} onSquareClick={handleClick} />
       </div>
