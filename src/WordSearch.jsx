@@ -207,6 +207,7 @@ function WordListTab({genWordList}){
 
 
 export default function WordSearch() {
+  
   const [genWordList, setGenWordList] = useState([]);
   const [_Crossword, setCrossword] = useState([]);
   const [maxWordLength, setMaxWordLength] = useState(0);
@@ -259,7 +260,6 @@ export default function WordSearch() {
       setSelectedWords([]);
       setWordList('');
       setColorSelector((colorselector+1)%colors.length);
-      //console.log(colorselector);
     }
 
     // Clear the selected word if it reaches maxWordLength
@@ -285,14 +285,16 @@ export default function WordSearch() {
       selection.style.backgroundColor = "rgb(255, 255, 255)";
       selection.style.color = "rgb(0, 0, 0)";
       // Remove the clicked square from selectedWords
-      setSelectedWords(selectedWords.filter(word => word !== value));
+      const index = selectedWords.indexOf(value);
       
-      // Find the index of the clicked square in WordList
-      const index = WordList.indexOf(selection.innerHTML);
       if (index !== -1) {
+        console.log(index);
         // Remove the character at the found index from WordList
         setWordList(WordList.slice(0, index) + WordList.slice(index + 1));
       }
+      
+      setSelectedWords(selectedWords.filter(word => word !== value));
+      
     } else {
       selection.style.backgroundColor = colors[colorselector];
       selection.style.color = charcolors[colorselector];
