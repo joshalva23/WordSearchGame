@@ -204,6 +204,33 @@ function WordListTab({genWordList}){
     </div>
   );
 }
+function TitleNScore({genWordList,remainingWords})
+{
+  return(
+        <div className="HeadWrapper">
+          <div className="Title" >
+            <p>WordSearch(Animals)</p>
+          </div>
+          <div className="Scoreboard">
+            <span><p>To Find</p></span>
+            <span><p className = "remCount" id="remCount">{remainingWords}</p></span>
+          </div>
+          <WordListTab genWordList={genWordList}/>
+        </div>
+  )
+}
+function GameAudio({audioRef,audioRef2}){
+    return (
+      <>
+        <audio ref={audioRef2}>
+          <source src={correctSound} type="audio/mpeg" />
+        </audio>
+        <audio ref={audioRef}>
+          <source src={winSound} type="audio/mpeg" />
+        </audio>
+      </>
+    );
+}
 
 
 export default function WordSearch() {
@@ -304,31 +331,15 @@ export default function WordSearch() {
       setWordList(WordList + selection.innerHTML);
     }
   }
-  
-  
 
   return (
     <>
       <div className="CrosswordWindow" id="CrosswordWindow">
         <CongratsTab  showCongratulations={showCongratulations}/>
-        <div className="HeadWrapper">
-          <div className="Title" >
-            <p>WordSearch(Animals)</p>
-          </div>
-          <div className="Scoreboard">
-            <span><p>To Find</p></span>
-            <span><p className = "remCount" id="remCount">{remainingWords}</p></span>
-          </div>
-          <WordListTab genWordList={genWordList}/>
-        </div>
+        <TitleNScore genWordList={genWordList} remainingWords={remainingWords}/>
         <Board crossword={_Crossword} onSquareClick={handleClick} />
       </div>
-      <audio ref={audioRef2}>
-        <source src={correctSound} type="audio/mpeg" />
-      </audio>
-      <audio ref={audioRef}>
-        <source src={winSound} type="audio/mpeg" />
-      </audio>
+      <GameAudio audioRef={audioRef} audioRef2={audioRef2}/>
     </>
   );
 }
