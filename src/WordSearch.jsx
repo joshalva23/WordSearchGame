@@ -42,12 +42,12 @@ class Crossword {
         const x = Math.floor(Math.random() * gridSize);
         const y = Math.floor(Math.random() * gridSize);
 
-        if (this.isPossibleDiagonal(x, y, index - 1)) {
-          this.wordPlace(x, y, index - 1, oriented.Z);
+        if (this.isPossibleVertical(x, y, index - 1)) {
+          this.wordPlace(x, y, index - 1, oriented.Y);
           isPlaced = true;
           this.inCrossword[index - 1] = true;
-        } else if (this.isPossibleVertical(x, y, index - 1)) {
-          this.wordPlace(x, y, index - 1, oriented.Y);
+        } else if (this.isPossibleDiagonal(x, y, index - 1)) {
+          this.wordPlace(x, y, index - 1, oriented.Z);
           isPlaced = true;
           this.inCrossword[index - 1] = true;
         } else if (this.isPossibleHorizontal(x, y, index - 1)) {
@@ -173,10 +173,10 @@ function CongratsTab({showCongratulations}) {
 
   return (
     <span className={`Congratulations ${showCongratulations? 'show':''}`} >
-      <p style={{ font: "italic bold 4rem 'Poppins', sans-serif", textAlign: "center" ,justifyContent:"center",margin:"40vh 0 0 0 "}}>
-        Great Bounty, Sire
+      <p>
+        Great Job, Sire
       </p>
-      <p style={{ font: "bold 1.25rem 'Poppins', sans-serif",textAlign: "center" ,justifyContent:"center", margin: "1vh 0 0 0" }}>
+      <p>
         <button onClick={() => window.location.reload()} className="ReplayButton">Replay</button>
       </p>
     </span>
