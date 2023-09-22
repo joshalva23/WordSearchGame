@@ -126,7 +126,7 @@
     height: 0.1vh;
     width: 0.1vw;
     left:0;
-    background-color: #ff416c;
+    background-color: #ff416c;/*#ff445c*/
     opacity: 0;
     transition: width 1s ease-out, height 1.5s ease-out, opacity 1.5s cubic-bezier(0.47, 0, 0.745, 0.715);
 }
@@ -164,7 +164,7 @@
     height:25rem;
     width:11rem;
     font: bold 1.5rem 'Poppins', sans-serif;
-    background-color: rgba(255, 65, 110, 0.7);
+    background-color: rgba(255, 65,110, 0.7);
     overflow-y:auto;
     overflow-x:auto;
     border-radius: 25px;
