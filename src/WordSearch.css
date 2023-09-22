@@ -77,9 +77,9 @@
 .square {
     background-color: #ffffff;
     justify-self: center;
-    height: 6.5vh;
-    width: 6.5vh;
-    font-size: 3.5vh;
+    height: 3.05rem;
+    width: 3.05rem;
+    font-size: 1.6rem;
     outline: none;
     border-color: rgb(255, 80, 92);
     box-shadow: none;
