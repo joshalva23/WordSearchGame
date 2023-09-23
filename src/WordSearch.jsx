@@ -212,8 +212,10 @@ function TitleNScore({genWordList,remainingWords})
             <p>WordSearch(Animals)</p>
           </div>
           <div className="Scoreboard">
-            <span><p>To Find</p></span>
-            <span><p className = "remCount" id="remCount">{remainingWords}</p></span>
+            <span>
+              <p>To Find</p>
+              <p className = "remCount" id="remCount">{remainingWords}</p>
+            </span>
           </div>
           <WordListTab genWordList={genWordList}/>
         </div>
