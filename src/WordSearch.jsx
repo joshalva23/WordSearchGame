@@ -61,7 +61,7 @@ class Crossword {
 
       index--;
     }
-    //this.printCrossword();
+    this.printCrossword();
 
     for (let i = 0; i < gridSize; i++) {
       for (let j = 0; j < gridSize; j++) {
@@ -255,7 +255,6 @@ export default function WordSearch() {
     const obj = new Crossword();
     try{
       obj.createCrossword();
-      obj.printCrossword();
     }
     catch(error)
     {
