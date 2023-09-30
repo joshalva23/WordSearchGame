@@ -174,7 +174,7 @@ function CongratsTab({showCongratulations}) {
   return (
     <span className={`Congratulations ${showCongratulations? 'show':''}`} >
       <p>
-        Great Job, Sire
+        Great Job 👍👍
       </p>
       <p>
         <button onClick={() => window.location.reload()} className="ReplayButton">Replay</button>
@@ -253,7 +253,13 @@ export default function WordSearch() {
 
   useEffect(() => {
     const obj = new Crossword();
-    obj.createCrossword();
+    try{
+      obj.createCrossword();
+    }
+    catch(error)
+    {
+      window.location.reload();
+    }
     setGenWordList(JSON.parse(JSON.stringify(words)));
     setCrossword(obj._Crossword);
     setMaxWordLength(obj.maxWordLength);
