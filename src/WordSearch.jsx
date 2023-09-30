@@ -255,6 +255,7 @@ export default function WordSearch() {
     const obj = new Crossword();
     try{
       obj.createCrossword();
+      obj.printCrossword();
     }
     catch(error)
     {
