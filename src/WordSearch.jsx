@@ -264,8 +264,8 @@ export default function WordSearch() {
     setCrossword(obj._Crossword);
     setMaxWordLength(obj.maxWordLength);
     setRemainingWords(words.length)
-    setColors(['#ff445c','#44FFE7']);
-    setCharcolors(['#ffffff','#000000']);
+    setColors(['#ff445c','#44FFE7','#FBB13C']);
+    setCharcolors(['#ffffff','#000000','#000000']);
     setfilled([].fill(false,0,gridSize*gridSize-1));
   }, []);
 
