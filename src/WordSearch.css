@@ -141,6 +141,7 @@
     font: italic bold 4rem 'Poppins', sans-serif;
     text-align: center ;
     justify-content:center;
+    opacity: 1;
     margin:40vh 0 0 0 ;
 }
 .Congratulations p:nth-child(2) {
@@ -155,6 +156,10 @@
     width: 100vw;
     opacity: 0.9;
     z-index: 5;
+}
+
+.Congratulations.show p:first-child{
+    opacity: 1;
 }
 
 .ReplayButton {
